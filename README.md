@@ -5,6 +5,8 @@ Displays the object or NPC ID value above a moused-over entity in the game world
 
 Next Steps:
 1. Display target ID and name in chatbox on Examine
+  1.1. Append ID to the menu entries on right-click
 2. Display on-hover object IDs above model (currently no native way of finding object model height 😖)
 3. Toggle ability to display IDs above every rendered NPC and object in current 3D view
-4. Custom text colour independent of highlight outline colour
+  3.1. Distinguish between ground, wall, and decorative objects with toggles
+5. Custom text colour independent of highlight outline colour
