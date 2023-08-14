@@ -1,12 +1,15 @@
 # RuneLite Identifier Plugin
-A Plugin for RuneLite that displays object and NPC IDs on mouse-over.
+A Plugin for RuneLite that displays IDs for NPCs or Objects in the game world.
 
-Displays the object or NPC ID value above a moused-over entity in the game world, or when hovered over in the right-click menu. Colours of NPC and object highlight outlines can be modified in the config panel. Drawing the outline and the ID value can both be toggled.
+Useful for contributing data to the Oldschool Runescape Wiki or for searching the cache for specific models.
 
-Next Steps:
-1. Display target ID and name in chatbox on Examine
-  1.1. Append ID to the menu entries on right-click
-2. Display on-hover object IDs above model (currently no native way of finding object model height 😖)
-3. Toggle ability to display IDs above every rendered NPC and object in current 3D view
-  3.1. Distinguish between ground, wall, and decorative objects with toggles
-5. Custom text colour independent of highlight outline colour
+## Current Features:
+- Mouse-over entities or highlight them in the right-click menu to display their ID value.
+- Toggle object highlighting (coloured outline) and text IDs separately.
+- Modify highlight colours for Objects and NPCs, as well as outline width and feathering.
+
+## Next Steps:
+1. Option to display ID as a mouse tooltip.
+2. Append IDs to right-click menu entries and also print to chatbox on Examine.
+3. Toggle to display IDs of all entities in 3D view (NPCs, Ground / Wall / Decoration objects).
+4. Support for projectiles.
