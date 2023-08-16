@@ -55,6 +55,7 @@ public interface IdentifierConfig extends Config
     String objectSection = "objectSection";
 
     // Items within config panel
+    // NPC RELATED CONFIG
     @ConfigItem(
             keyName = "npcShowHover",
             name = "Show on hover",
@@ -88,7 +89,25 @@ public interface IdentifierConfig extends Config
     )
     default Color npcHighlightColor() { return new Color(0x9000FFFF, true); }
 
+    @ConfigItem(
+            keyName = "npcShowIDAll",
+            name = "Show IDs for all NPCs",
+            description = "Display all currently viewed NPCs' IDs",
+            position = 4,
+            section = npcSection
+    )
+    default boolean npcShowIDAll() { return false; }
 
+    @ConfigItem(
+            keyName = "npcHighlightAll",
+            name = "Highlight all NPCs",
+            description = "Outline all NPCs in view",
+            position = 5,
+            section = npcSection
+    )
+    default boolean npcHighlightAll() { return false; }
+
+    // OBJECT RELATED CONFIG
     @ConfigItem(
             keyName = "objectShowHover",
             name = "Show on hover",
@@ -100,7 +119,6 @@ public interface IdentifierConfig extends Config
     {
         return true;
     }
-
 
     @ConfigItem(
             keyName = "objectShowID",
@@ -122,6 +140,24 @@ public interface IdentifierConfig extends Config
             section = objectSection
     )
     default Color objectHighlightColor() { return new Color(0x9000FFFF, true); }
+
+//    @ConfigItem(
+//            keyName = "objectShowIDAll",
+//            name = "Show IDs for all objects in scene",
+//            description = "Display all currently viewed objects' IDs",
+//            position = 4,
+//            section = objectSection
+//    )
+//    default boolean objectShowIDAll() { return false; }
+//
+//    @ConfigItem(
+//            keyName = "objectHighlightAll",
+//            name = "Highlight all objects",
+//            description = "Outline all objects in view",
+//            position = 5,
+//            section = objectSection
+//    )
+//    default boolean objectHighlightAll() { return false; }
 
     // Uncategorised settings
     @ConfigItem(

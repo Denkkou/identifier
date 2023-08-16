@@ -32,13 +32,11 @@ package com.identifier;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.util.List;
+import java.util.function.Consumer;
 import javax.inject.Inject;
-import net.runelite.api.Client;
-import net.runelite.api.MenuAction;
-import net.runelite.api.MenuEntry;
-import net.runelite.api.NPC;
-import net.runelite.api.Point;
-import net.runelite.api.TileObject;
+
+import net.runelite.api.*;
 import net.runelite.client.ui.overlay.*;
 import net.runelite.client.ui.overlay.outline.ModelOutlineRenderer;
 import net.runelite.client.util.Text;
@@ -74,7 +72,30 @@ class IdentifierOverlay extends Overlay
     @Override
     public Dimension render(Graphics2D graphics) {
         renderMouseover(graphics);
+        renderAllInScene(graphics); // Currently only NPCs
         return null;
+    }
+
+    private void renderAllInScene(Graphics2D graphics){
+        //Get all NPCs in the scene
+        List<NPC> NPCs = client.getNpcs();
+
+        if (config.npcShowIDAll()) {
+            // Draw IDs for all NPCs in scene
+            for (NPC npc : NPCs){
+                renderIDText(npc, graphics);
+            }
+        }
+
+        if (config.npcHighlightAll()) {
+            // Highlight every NPC in scene
+            for (NPC npc : NPCs) {
+                modelOutlineRenderer.drawOutline(npc,
+                        config.borderWidth(),
+                        config.npcHighlightColor(),
+                        config.outlineFeather());
+            }
+        }
     }
 
     private void renderMouseover(Graphics2D graphics) {
@@ -183,7 +204,7 @@ class IdentifierOverlay extends Overlay
         // Point object containing mouse position on screen space
         final Point mousePosition = client.getMouseCanvasPosition();
 
-        // I don't get understand what this all does :S
+        // I don't yet understand what all of this does :S
         int dy = mousePosition.getY() - menuY;
         dy -= 19; // Height of Choose Option
         if (dy < 0)
